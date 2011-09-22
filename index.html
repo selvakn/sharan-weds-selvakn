@@ -1,14 +1,6 @@
 <head>
   <title>A Dream Come True</title>
-  <style>
-    #map_canvas {
-      width: 200px;
-      height: 200px;
-      display: block;
-    }
-
-  </style>
-
+    <link href="stylesheets/common.css" media="screen" rel="stylesheet" type="text/css" />
 </head>
 <body>
   <div>This is the header</div>
@@ -16,10 +8,9 @@
 
   <div>This is the body of the page</div>
   <div id="map_canvas"></div>
-  <script type="text/javascript"
-    src="http://maps.googleapis.com/maps/api/js?sensor=false">
-  </script>
-
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/sammy-0.7.0.min.js"></script>
   <script type="text/javascript">
     function initialize() {
       var latlng = new google.maps.LatLng(-34.397, 150.644);

@@ -1,8 +1,38 @@
----
-layout: default
-title: ABC
-permalink: /
----
+<head>
+  <title>A Dream Come True</title>
+  <style>
+    #map_canvas {
+      width: 200px;
+      height: 200px;
+      display: block;
+    }
+
+  </style>
+
+</head>
+<body>
+  <div>This is the header</div>
 
 
-<div>This is the body of the page</div>
+  <div>This is the body of the page</div>
+  <div id="map_canvas"></div>
+  <script type="text/javascript"
+    src="http://maps.googleapis.com/maps/api/js?sensor=false">
+  </script>
+
+  <script type="text/javascript">
+    function initialize() {
+      var latlng = new google.maps.LatLng(-34.397, 150.644);
+      var myOptions = {
+        zoom: 8,
+        center: latlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+      var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+    }
+    window.onload = function(){
+    initialize();
+    }
+</script>
+<div>This is the footer</div>
+</body>

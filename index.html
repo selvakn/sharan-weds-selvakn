@@ -21,13 +21,25 @@
     <script type="text/javascript" src="javascripts/sammy-0.7.0.min.js"></script>
     <script type="text/javascript">
       function initialize() {
-        var latlng = new google.maps.LatLng(-34.397, 150.644);
-        var myOptions = {
-          zoom: 8,
-          center: latlng,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+        var cbeMandapamLatLng = new google.maps.LatLng(11.011981,76.949787),
+            myOptions = {
+              zoom: 16,
+              center: cbeMandapamLatLng,
+              mapTypeId: google.maps.MapTypeId.ROADMAP
+            },
+           map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+           marker = new google.maps.Marker({
+              position: cbeMandapamLatLng,
+              map: map,
+              title: "Rajasthani Sangh"
+            }),
+           infowindow = new google.maps.InfoWindow({
+maxWidth: 450,
+content: "<div><strong>Rajasthani Sangh Bhavan</strong></div><div><a href='http://maps.google.com/maps/place?cid=15145243433214722012' target='_blank'>more info >></a></div><div><span>No 579, DB Road, R.S. Puram,</span></div><div><span>Coimbatore, Tamil Nadu 641002, India</span></div><div><span>0422 255 1775</span></div>"
+          });
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.open(map,marker);
+        });
       }
       window.onload = function(){
         initialize();
@@ -156,6 +168,6 @@
 
     </ul>
 
-</body>
+ </body>
 
 </html>

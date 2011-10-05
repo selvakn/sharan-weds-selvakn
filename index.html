@@ -30,7 +30,15 @@
         var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
       }
       window.onload = function(){
-      initialize();
+        initialize();
+        $(".anchorLink").click(function(e){
+          e.preventDefault();
+          targetID = $(e.target).attr('href');
+          $(targetID).fadeIn("slow")
+          $(".active").fadeOut("slow", function(){
+            $(targetID).fadeIn("slow").addClass("active");
+          }).removeClass("active");
+        });
       }
   </script>
   </head>
@@ -52,101 +60,101 @@
         </ul>
         </nav>
 
-    	</div>
+      </div>
 
     </header>
 
-    <section id="contentcontainer"> <!-- HTML5 section tag for the content 'section' -->
+    <ul id="contentcontainer"> <!-- HTML5 section tag for the content 'section' -->
 
-    	<section id="intro">
+      <li id="intro" class="active">
 
-    		<h2 class="intro">Hand-coded <strong>HTML</strong> and <strong>CSS</strong> is what I do. <span class="sub">It's what I'm good at so why not?</span></h2>
+        <h2 class="intro">Hand-coded <strong>HTML</strong> and <strong>CSS</strong> is what I do. <span class="sub">It's what I'm good at so why not?</span></h2>
 
-    		<a class="featured" href="http://inspectelement.com"><img src="stylesheets/images/featured.gif" alt="Inspect Element large preview" /></a>
+        <a class="featured" href="http://inspectelement.com"><img src="stylesheets/images/featured.gif" alt="Inspect Element large preview" /></a>
 
-    		<p>Featured Project: <a href="#">Inspect Element</a></p>
+        <p>Featured Project: <a href="#">Inspect Element</a></p>
         <div id="map_canvas"></div>
 
-    	</section>
+      </li>
 
-    	<section id="portfolio"> <!-- HTML5 section tag for the portfolio 'section' -->
+      <li id="portfolio" class="hidden"> <!-- HTML5 section tag for the portfolio 'section' -->
 
-    		<h2 class="work">My Portfolio</h2>
+        <h2 class="work">My Portfolio</h2>
 
-    		<ul class="work">
-    			<li>
-    				<a href="http://inspectelement.com"><img src="stylesheets/images/inspectelementSmall.jpg" alt="Inspect Element preview" /></a>
-    			</li>
-    			<li>
-    				<a href="http://inspectelement.com"><img src="stylesheets/images/inspectelementSmall.jpg" alt="Inspect Element preview" /></a>
-    			</li>
-    			<li>
-    				<a href="http://inspectelement.com"><img src="stylesheets/images/inspectelementSmall.jpg" alt="Inspect Element preview" /></a>
-    			</li>
-    			<li>
-    				<a href="http://inspectelement.com"><img src="stylesheets/images/inspectelementSmall.jpg" alt="Inspect Element preview" /></a>
-    			</li>
-    			<li>
-    				<a href="http://inspectelement.com"><img src="stylesheets/images/inspectelementSmall.jpg" alt="Inspect Element preview" /></a>
-    			</li>
-    			<li>
-    				<a href="http://inspectelement.com"><img src="stylesheets/images/inspectelementSmall.jpg" alt="Inspect Element preview" /></a>
-    			</li>
-    			<li>
-    				<a href="http://inspectelement.com"><img src="stylesheets/images/inspectelementSmall.jpg" alt="Inspect Element preview" /></a>
-    			</li>
-    			<li>
-    				<a href="http://inspectelement.com"><img src="stylesheets/images/inspectelementSmall.jpg" alt="Inspect Element preview" /></a>
-    			</li>
-    			<li>
-    				<a href="http://inspectelement.com"><img src="stylesheets/images/inspectelementSmall.jpg" alt="Inspect Element preview" /></a>
-    			</li>
-    		</ul>
+        <ul class="work">
+          <li>
+            <a href="http://inspectelement.com"><img src="stylesheets/images/inspectelementSmall.jpg" alt="Inspect Element preview" /></a>
+          </li>
+          <li>
+            <a href="http://inspectelement.com"><img src="stylesheets/images/inspectelementSmall.jpg" alt="Inspect Element preview" /></a>
+          </li>
+          <li>
+            <a href="http://inspectelement.com"><img src="stylesheets/images/inspectelementSmall.jpg" alt="Inspect Element preview" /></a>
+          </li>
+          <li>
+            <a href="http://inspectelement.com"><img src="stylesheets/images/inspectelementSmall.jpg" alt="Inspect Element preview" /></a>
+          </li>
+          <li>
+            <a href="http://inspectelement.com"><img src="stylesheets/images/inspectelementSmall.jpg" alt="Inspect Element preview" /></a>
+          </li>
+          <li>
+            <a href="http://inspectelement.com"><img src="stylesheets/images/inspectelementSmall.jpg" alt="Inspect Element preview" /></a>
+          </li>
+          <li>
+            <a href="http://inspectelement.com"><img src="stylesheets/images/inspectelementSmall.jpg" alt="Inspect Element preview" /></a>
+          </li>
+          <li>
+            <a href="http://inspectelement.com"><img src="stylesheets/images/inspectelementSmall.jpg" alt="Inspect Element preview" /></a>
+          </li>
+          <li>
+            <a href="http://inspectelement.com"><img src="stylesheets/images/inspectelementSmall.jpg" alt="Inspect Element preview" /></a>
+          </li>
+        </ul>
 
-    	</section>
+      </li>
 
-    	<section id="about"> <!-- HTML5 section tag for the about 'section' -->
+      <li id="about" class="hidden"> <!-- HTML5 section tag for the about 'section' -->
 
-    		<h2 class="about">About Me</h2>
+        <h2 class="about">About Me</h2>
 
-    		<p>Now this is a story all about how my life got twisted upside down and I'd like to take a minute just sit right there I'll tell you how I became the prince of a town called Bel-Air. In West Philadelphia born and raised on the playground my momma said most of my days chilling out, maxing and relaxing all cool and all shooting some b-ball outside of school when a couple of guys they were up to no good started making trouble in our neighbourhood I got in one little fight and my mom got scared, she said your moving in with your auntie and uncle in Bel-Air</p>
+        <p>Now this is a story all about how my life got twisted upside down and I'd like to take a minute just sit right there I'll tell you how I became the prince of a town called Bel-Air. In West Philadelphia born and raised on the playground my momma said most of my days chilling out, maxing and relaxing all cool and all shooting some b-ball outside of school when a couple of guys they were up to no good started making trouble in our neighbourhood I got in one little fight and my mom got scared, she said your moving in with your auntie and uncle in Bel-Air</p>
 
-    	</section>
+      </li>
 
-    	<section id="contact"> <!-- HTML5 section tag for the contact 'section' -->
+      <li id="contact" class="hidden"> <!-- HTML5 section tag for the contact 'section' -->
 
-    		<h2 class="contact">Contact Me</h2>
+        <h2 class="contact">Contact Me</h2>
 
-    		<p>I whistled for a cab and when it came near the license plate said fresh and had dice in the mirror, if anything I could say that this cab was rare but I thought nah, <a href="">forget it</a>, yo home to Bel-Air! I pulled up to the house about seven or eight I yelled to the cabbie yo home, smell you later, looked at my kingdom I was finally there to sit on my throne as the prince of Bel-Air</p>
+        <p>I whistled for a cab and when it came near the license plate said fresh and had dice in the mirror, if anything I could say that this cab was rare but I thought nah, <a href="">forget it</a>, yo home to Bel-Air! I pulled up to the house about seven or eight I yelled to the cabbie yo home, smell you later, looked at my kingdom I was finally there to sit on my throne as the prince of Bel-Air</p>
 
-    		<form id="contactform">
+        <form id="contactform">
 
-    			<p><label for="name">Name</label></p>
-    			<input type="text" id=name name=name placeholder="First and last name" required tabindex="1" />
+          <p><label for="name">Name</label></p>
+          <input type="text" id=name name=name placeholder="First and last name" required tabindex="1" />
 
-    			<p><label for="email">Email</label></p>
-    			<input type="text" id=email name=email placeholder="example@domain.com" required tabindex="2" />
+          <p><label for="email">Email</label></p>
+          <input type="text" id=email name=email placeholder="example@domain.com" required tabindex="2" />
 
-    			<p><label for="comment">Your Message</label></p>
-    			<textarea name="comment" id="comment" tabindex="4"></textarea>
+          <p><label for="comment">Your Message</label></p>
+          <textarea name="comment" id="comment" tabindex="4"></textarea>
 
-    			<input name="submit" type="submit" id="submit" tabindex="5" value="Send Message" />
+          <input name="submit" type="submit" id="submit" tabindex="5" value="Send Message" />
 
-    		</form>
+        </form>
 
 
-    	</section>
+      </li>
 
-    	<footer> <!-- HTML5 footer tag -->
+      <footer> <!-- HTML5 footer tag -->
 
-    		<ul>
-    			<li><img src="stylesheets/images/twitter.png" alt="" /><a href="http://twitter.com/tkenny">Follow me on Twitter</a></li>
-    			<li><a href="http://inspectelement.com/articles/code-a-backwards-compatible-one-page-portfolio-with-html5-and-css3">Back to the Tutorial on Inspect Element</a></li>
-    		</ul>
+        <ul>
+          <li><img src="stylesheets/images/twitter.png" alt="" /><a href="http://twitter.com/selvakn">Follow us on Twitter</a></li>
+          <li><a href="http://www.facebook.com/selvakn">Facebook</a></li>
+        </ul>
 
-    	</footer>
+      </footer>
 
-    </section>
+    </ul>
 
 </body>
 

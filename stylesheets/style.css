@@ -50,7 +50,7 @@ h2 span.sub { font-size: 48px; float: left; color: #4b4b4b; }
 
 h2.intro { background: url(images/intro.png) no-repeat -10px -10px; }
 h2.work { background: url(images/portfolio.png) no-repeat -10px -10px; }
-h2.photos { background: url(images/about.png) no-repeat -10px -10px; }
+h2.photos { background: url(images/gallery-icon.png) no-repeat -10px -10px; }
 h2.contact { background: url(images/contact.png) no-repeat -10px -10px; }
 
 a { color: #7ac000; text-decoration: none; border-bottom: 1px solid #7ac000; padding-bottom: 2px; }

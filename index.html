@@ -40,14 +40,16 @@
                   latLng: new google.maps.LatLng(11.011981,76.949787),
                   title: "Rajasthani Sangh",
                   zoomLevel: 16,
+                  mapType: google.maps.MapTypeId.ROADMAP,
                   info: "<div><strong>Rajasthani Sangh Bhavan</strong></div><div><a href='http://maps.google.com/maps/place?cid=15145243433214722012' target='_blank'>more info >></a></div><div><span>No 579, DB Road, R.S. Puram,</span></div><div><span>Coimbatore, Tamil Nadu 641002, India</span></div><div><span>0422 255 1775</span></div>"
         },
             rasipuram = {
          element: "#rasipuram .map_canvas",
          latLng: new google.maps.LatLng(11.450973,78.205735),
          title: "Kongu Vellalar Thirumana Mandapam",
-         zoomLevel: 13,
-         info: "<div><strong>Kongu Vellalar Thirumana Mandapam</strong></div>"
+         zoomLevel: 16,
+         mapType: google.maps.MapTypeId.SATELLITE,
+         info: "<div><strong>Kongu Vellalar Thirumana Mandapam</strong></div><>"
             };
         _initMaps(cbe);
         _initMaps(rasipuram);
@@ -57,7 +59,7 @@
         var mapOptions = {
           zoom: location.zoomLevel,
           center: location.latLng,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
+          mapTypeId: location.mapType
         }
         var map = new google.maps.Map($(location.element)[0], mapOptions);
         var marker = new google.maps.Marker({
@@ -80,7 +82,7 @@
           this.setLocationProxy(new Sammy.PushLocationProxy(this));
 
           var context = this;
-          $.each(["index", "portfolio", "photos", "rsvp", "guestbook"], function(i, path){
+          $.each(["index", "events", "photos", "rsvp", "guestbook"], function(i, path){
             var pathname = "/" + path + ".html";
             context.get(pathname, function() {
               var targetID = path;
@@ -112,7 +114,7 @@
         <nav> <!-- HTML5 navigation tag -->
         <ul>
             <li><a class="link anchorLink" href="/index.html" rel="#">Intro</a></li>
-            <li><a class="eventslink anchorLink" href="/events.html" rel="#portfolio">Events</a></li>
+            <li><a class="eventslink anchorLink" href="/events.html" rel="#events">Events</a></li>
             <li><a class="photoslink anchorLink" href="/photos.html" rel="#photos">Photos</a></li>
             <li><a class="rsvplink anchorLink" href="/rsvp.html" rel="#rsvp">RSVP</a></li>
             <li><a class="guestbooklink anchorLink" href="/guestbook.html" rel="#guestbook">Guestbook</a></li>

@@ -45,7 +45,7 @@ h1 a:hover { color: #fff; border-bottom: 1px solid rgba(0, 0, 0, 0.4); padding-b
 	);
 }
 
-.sub_heading {color: #7AC000 }
+.sub_heading {color: #7AC000; height: 85px; }
 h2 { padding-left: 125px; font-size: 66px; color: #ff5400; height: 105px; }
 h2 span.sub { font-size: 48px; float: left; color: #4b4b4b; }
 

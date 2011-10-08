@@ -8,12 +8,6 @@
   display: none;
 }
 
-#slideshow {
-margin-left:auto;
-margin-right:auto;
-
-}
-
 .float_left {
   float: left;
 }
@@ -28,4 +22,12 @@ margin-right:auto;
 
 .center {
   text-align: center;
+}
+
+.clear {
+  clear: both;
+}
+
+.venue {
+  width: 45%
 }

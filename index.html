@@ -19,6 +19,7 @@
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
     <script type="text/javascript" src="javascripts/sammy-0.7.0.min.js"></script>
+    <script type="text/javascript" src="javascripts/sammy.push_location_proxy-0.7.0.min.js"></script>
     <!-- google analytics-->
     <script type="text/javascript">
 
@@ -57,16 +58,29 @@ content: "<div><strong>Rajasthani Sangh Bhavan</strong></div><div><a href='http:
       }
       window.onload = function(){
         initialize();
-        $(".anchorLink").click(function(e){
-          e.preventDefault();
-          targetID = $(e.target).attr('href');
-          $(targetID).fadeIn("slow")
-          $(".active").fadeOut("slow", function(){
-            $(targetID).fadeIn("slow").addClass("active");
-          }).removeClass("active");
-        });
+        $.sammy(function(){
+          this.setLocationProxy(new Sammy.PushLocationProxy(this));
+
+          var context = this;
+          $.each(["index", "portfolio", "photos", "rsvp", "guestbook"], function(i, path){
+            var pathname = "/" + path + ".html";
+            context.get(pathname, function() {
+              var targetID = path;
+              if($(".active")[0] === undefined){
+                $("#" + targetID).show().addClass("active");
+              }else{
+                $(".active").fadeOut("slow", function(){
+                  $("#" + targetID).fadeIn("slow").addClass("active");
+                }).removeClass("active");
+              }
+            });
+          });
+          context.get("/", function(){
+            $("#index").show().addClass("active");
+          });
+        }).run(window.location.pathname);
       }
-  </script>
+</script>
   </head>
 
   <body>
@@ -75,15 +89,15 @@ content: "<div><strong>Rajasthani Sangh Bhavan</strong></div><div><a href='http:
 
       <div id="headercontainer">
 
-        <h1><a class="introlink anchorLink" href="#intro">Sharan Weds Selva</a></h1>
+        <h1><a class="introlink anchorLink" href="/">Sharan Weds Selva</a></h1>
 
         <nav> <!-- HTML5 navigation tag -->
         <ul>
-            <li><a class="introlink anchorLink" href="#intro">Intro</a></li>
-            <li><a class="portfoliolink anchorLink" href="#portfolio">Portfolio</a></li>
-            <li><a class="photoslink anchorLink" href="#photos">Photos</a></li>
-            <li><a class="rsvplink anchorLink" href="#rsvp">RSVP</a></li>
-            <li><a class="guestbooklink anchorLink" href="#guestbook">Guestbook</a></li>
+            <li><a class="link anchorLink" href="/index.html" rel="#">Intro</a></li>
+            <li><a class="portfoliolink anchorLink" href="/portfolio.html" rel="#portfolio">Portfolio</a></li>
+            <li><a class="photoslink anchorLink" href="/photos.html" rel="#photos">Photos</a></li>
+            <li><a class="rsvplink anchorLink" href="/rsvp.html" rel="#rsvp">RSVP</a></li>
+            <li><a class="guestbooklink anchorLink" href="/guestbook.html" rel="#guestbook">Guestbook</a></li>
         </ul>
         </nav>
 
@@ -93,7 +107,7 @@ content: "<div><strong>Rajasthani Sangh Bhavan</strong></div><div><a href='http:
 
     <section id="contentcontainer"> <!-- HTML5 section tag for the content 'section' -->
 
-      <section id="intro" class="active">
+      <section id="index" class="hidden">
 
         <h2 class="intro">Hand-coded <strong>HTML</strong> and <strong>CSS</strong> is what I do. <span class="sub">It's what I'm good at so why not?</span></h2>
 

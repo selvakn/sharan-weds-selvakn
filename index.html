@@ -35,7 +35,9 @@
 
      </script>
     <script type="text/javascript">
+      var mapsLoaded = false;
       function initialize() {
+        if(mapsLoaded) { return }
         var cbe = {element: "#cbe .map_canvas",
                   latLng: new google.maps.LatLng(11.011981,76.949787),
                   title: "Rajasthani Sangh",
@@ -53,6 +55,7 @@
             };
         _initMaps(cbe);
         _initMaps(rasipuram);
+        mapsLoaded = true;
       }
 
       function _initMaps(location){
@@ -77,7 +80,6 @@
 
       }
       window.onload = function(){
-        initialize();
         $.sammy(function(){
           this.setLocationProxy(new Sammy.PushLocationProxy(this));
 
@@ -88,17 +90,22 @@
               var targetID = path;
               if($(".active")[0] === undefined){
                 $("#" + targetID).show().addClass("active");
+                if(path == "events") { initialize(); }
               }else{
                 $(".active").fadeOut("slow", function(){
-                  $("#" + targetID).fadeIn("slow").addClass("active");
+                  $("#" + targetID).fadeIn("slow", function(){
+                    if(path == "events") { initialize(); }
+                  }).addClass("active");
                 }).removeClass("active");
               }
+
             });
           });
           context.get("/", function(){
             $("#index").show().addClass("active");
           });
         }).run(window.location.pathname);
+
       }
 </script>
   </head>
@@ -129,23 +136,24 @@
 
       <section id="index" class="hidden">
       <div>
-        <div class="float_left" id="cbe">
-          <div class="map_canvas"></div>
+        <div class="center">
+          <img src="stylesheets/images/big-leaf.png" alt="Invitation"/>
         </div>
-        <div class="float_right" id="rasipuram">
-          <div class="map_canvas"></div>
+        <div class="center">
+          <img src="stylesheets/images/small-leaf.png" alt="Invitation" />
         </div>
       </div>
       </section>
 
       <section id="events" class="hidden">
 
-        <h2 class="work">Events</h2>
-          <h2 class="intro">Hand-coded <strong>HTML</strong> and <strong>CSS</strong> is what I do. <span class="sub">It's what I'm good at so why not?</span></h2>
+        <div class="float_left" id="cbe">
+          <div class="map_canvas"></div>
+        </div>
+        <div class="float_right" id="rasipuram">
+          <div class="map_canvas"></div>
+        </div>
 
-          <a class="featured" href="http://inspectelement.com"><img src="stylesheets/images/featured.gif" alt="Inspect Element large preview" /></a>
-
-          <p>Featured Project: <a href="#">Inspect Element</a></p>
 
         <h1 class="sub_heading"> Wedding & Reception @ Coimbatore </h1>
         <ul class="work">
@@ -177,14 +185,14 @@
 
       <section id="photos" class="hidden"> <!-- HTML5 section tag for the photos 'section' -->
 
-      <h2 class="photos">Photos</h2>
-
-      <embed type="application/x-shockwave-flash"
-      id="slideshow"
-      src="https://picasaweb.google.com/s/c/bin/slideshow.swf"
-      width="600" height="400"
-      flashvars="host=picasaweb.google.com&hl=en_US&feat=flashalbum&RGB=0xFFFFFF&feed=https%3A%2F%2Fpicasaweb.google.com%2Fdata%2Ffeed%2Fapi%2Fuser%2Fk.n.selvakumar%2Falbumid%2F5660322581540699137%3Falt%3Drss%26kind%3Dphoto%26hl%3Den_US" pluginspage="http://www.macromedia.com/go/getflashplayer"></embed>
-      </section>
+      <div class="center">
+        <embed type="application/x-shockwave-flash"
+          id="slideshow"
+          src="https://picasaweb.google.com/s/c/bin/slideshow.swf"
+          width="600" height="400"
+          flashvars="host=picasaweb.google.com&hl=en_US&feat=flashalbum&RGB=0xFFFFFF&feed=https%3A%2F%2Fpicasaweb.google.com%2Fdata%2Ffeed%2Fapi%2Fuser%2Fk.n.selvakumar%2Falbumid%2F5660322581540699137%3Falt%3Drss%26kind%3Dphoto%26hl%3Den_US" pluginspage="http://www.macromedia.com/go/getflashplayer"></embed>
+        </section>
+      </div>
 
       <section id="rsvp" class="hidden">
         <iframe src="https://docs.google.com/spreadsheet/embeddedform?formkey=dDEtZ3VwSXB6ODNwd0RaNlVZTHpzdWc6MQ" width="970" height="560" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>

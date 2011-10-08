@@ -124,7 +124,7 @@ input[type="submit"]:hover { color: #fff; border-bottom: 1px solid rgba(0, 0, 0,
 input[type="submit"]:active { position: relative; top: 1px; }
 
 footer { float: left; margin-top: 50px; }
-footer ul { margin-bottom: 150px; }
+footer ul { margin-bottom: 20px; }
 footer ul li { display: inline; margin-right: 50px; }
 footer ul li a { font-size: 24px; margin-left: 10px; }
 footer ul li img { vertical-align: bottom; position: relative; top: 2px; }

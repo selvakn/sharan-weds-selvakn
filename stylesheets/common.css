@@ -9,9 +9,9 @@
 }
 
 #slideshow {
-  left: 30%;
-  right: 30%;
-  position: relative;
+margin-left:auto;
+margin-right:auto;
+
 }
 
 .float_left {
@@ -24,4 +24,8 @@
 
 .float_right {
   float: right;
+}
+
+.center {
+  text-align: center;
 }

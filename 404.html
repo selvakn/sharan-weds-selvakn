@@ -1,1 +1,189 @@
-index.html
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>A Dream Come True</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="stylesheets/ie7.css" type="text/css" media="screen" />
+    <![endif]-->
+
+    <link rel="stylesheet" href="stylesheets/style.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="stylesheets/common.css" type="text/css" media="screen" />
+
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/sammy-0.7.0.min.js"></script>
+    <script type="text/javascript" src="javascripts/sammy.push_location_proxy-0.7.0.min.js"></script>
+    <!-- google analytics-->
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-26155291-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+       })();
+
+     </script>
+    <script type="text/javascript">
+      function initialize() {
+        var cbeMandapamLatLng = new google.maps.LatLng(11.011981,76.949787),
+            myOptions = {
+              zoom: 16,
+              center: cbeMandapamLatLng,
+              mapTypeId: google.maps.MapTypeId.ROADMAP
+            },
+           map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+           marker = new google.maps.Marker({
+              position: cbeMandapamLatLng,
+              map: map,
+              title: "Rajasthani Sangh"
+            }),
+           infowindow = new google.maps.InfoWindow({
+maxWidth: 450,
+content: "<div><strong>Rajasthani Sangh Bhavan</strong></div><div><a href='http://maps.google.com/maps/place?cid=15145243433214722012' target='_blank'>more info >></a></div><div><span>No 579, DB Road, R.S. Puram,</span></div><div><span>Coimbatore, Tamil Nadu 641002, India</span></div><div><span>0422 255 1775</span></div>"
+          });
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.open(map,marker);
+        });
+      }
+      window.onload = function(){
+        initialize();
+        $.sammy(function(){
+          this.setLocationProxy(new Sammy.PushLocationProxy(this));
+
+          var context = this;
+          $.each(["index", "portfolio", "photos", "rsvp", "guestbook"], function(i, path){
+            var pathname = "/" + path + ".html";
+            context.get(pathname, function() {
+              var targetID = path;
+              if($(".active")[0] === undefined){
+                $("#" + targetID).show().addClass("active");
+              }else{
+                $(".active").fadeOut("slow", function(){
+                  $("#" + targetID).fadeIn("slow").addClass("active");
+                }).removeClass("active");
+              }
+            });
+          });
+          context.get("/", function(){
+            $("#index").show().addClass("active");
+          });
+        }).run(window.location.pathname);
+      }
+</script>
+  </head>
+
+  <body>
+
+    <header> <!-- HTML5 header tag -->
+
+      <div id="headercontainer">
+
+        <h1><a class="introlink anchorLink" href="/">Sharan Weds Selva</a></h1>
+
+        <nav> <!-- HTML5 navigation tag -->
+        <ul>
+            <li><a class="link anchorLink" href="/index.html" rel="#">Intro</a></li>
+            <li><a class="portfoliolink anchorLink" href="/portfolio.html" rel="#portfolio">Portfolio</a></li>
+            <li><a class="photoslink anchorLink" href="/photos.html" rel="#photos">Photos</a></li>
+            <li><a class="rsvplink anchorLink" href="/rsvp.html" rel="#rsvp">RSVP</a></li>
+            <li><a class="guestbooklink anchorLink" href="/guestbook.html" rel="#guestbook">Guestbook</a></li>
+        </ul>
+        </nav>
+
+      </div>
+
+    </header>
+
+    <section id="contentcontainer"> <!-- HTML5 section tag for the content 'section' -->
+
+      <section id="index" class="hidden">
+
+        <h2 class="intro">Hand-coded <strong>HTML</strong> and <strong>CSS</strong> is what I do. <span class="sub">It's what I'm good at so why not?</span></h2>
+
+        <a class="featured" href="http://inspectelement.com"><img src="stylesheets/images/featured.gif" alt="Inspect Element large preview" /></a>
+
+        <p>Featured Project: <a href="#">Inspect Element</a></p>
+        <div id="map_canvas"></div>
+
+      </section>
+
+      <section id="portfolio" class="hidden"> <!-- HTML5 section tag for the portfolio 'section' -->
+
+        <h2 class="work">My Portfolio</h2>
+
+        <ul class="work">
+          <li>
+            <a href="http://inspectelement.com"><img src="stylesheets/images/inspectelementSmall.jpg" alt="Inspect Element preview" /></a>
+          </li>
+          <li>
+            <a href="http://inspectelement.com"><img src="stylesheets/images/inspectelementSmall.jpg" alt="Inspect Element preview" /></a>
+          </li>
+          <li>
+            <a href="http://inspectelement.com"><img src="stylesheets/images/inspectelementSmall.jpg" alt="Inspect Element preview" /></a>
+          </li>
+          <li>
+            <a href="http://inspectelement.com"><img src="stylesheets/images/inspectelementSmall.jpg" alt="Inspect Element preview" /></a>
+          </li>
+          <li>
+            <a href="http://inspectelement.com"><img src="stylesheets/images/inspectelementSmall.jpg" alt="Inspect Element preview" /></a>
+          </li>
+          <li>
+            <a href="http://inspectelement.com"><img src="stylesheets/images/inspectelementSmall.jpg" alt="Inspect Element preview" /></a>
+          </li>
+          <li>
+            <a href="http://inspectelement.com"><img src="stylesheets/images/inspectelementSmall.jpg" alt="Inspect Element preview" /></a>
+          </li>
+          <li>
+            <a href="http://inspectelement.com"><img src="stylesheets/images/inspectelementSmall.jpg" alt="Inspect Element preview" /></a>
+          </li>
+          <li>
+            <a href="http://inspectelement.com"><img src="stylesheets/images/inspectelementSmall.jpg" alt="Inspect Element preview" /></a>
+          </li>
+        </ul>
+
+      </section>
+
+      <section id="photos" class="hidden"> <!-- HTML5 section tag for the photos 'section' -->
+
+      <h2 class="photos">Photos</h2>
+
+      <embed type="application/x-shockwave-flash"
+      id="slideshow"
+      src="https://picasaweb.google.com/s/c/bin/slideshow.swf"
+      width="600" height="400"
+      flashvars="host=picasaweb.google.com&hl=en_US&feat=flashalbum&RGB=0xFFFFFF&feed=https%3A%2F%2Fpicasaweb.google.com%2Fdata%2Ffeed%2Fapi%2Fuser%2Fk.n.selvakumar%2Falbumid%2F5660322581540699137%3Falt%3Drss%26kind%3Dphoto%26hl%3Den_US" pluginspage="http://www.macromedia.com/go/getflashplayer"></embed>
+      </section>
+
+      <section id="rsvp" class="hidden">
+        <iframe src="https://docs.google.com/spreadsheet/embeddedform?formkey=dDEtZ3VwSXB6ODNwd0RaNlVZTHpzdWc6MQ" width="970" height="560" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+      </section>
+
+      <section id="guestbook" class="hidden">
+        <iframe src="https://docs.google.com/spreadsheet/embeddedform?formkey=dDVxS01ST2RNYlQtcnlCYjVkdVRxZlE6MQ" width="967" height="827" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+      </section>
+
+      <footer> <!-- HTML5 footer tag -->
+
+        <ul>
+          <li><img src="stylesheets/images/twitter.png" alt="" /><a href="http://twitter.com/selvakn">Follow us on Twitter</a></li>
+          <li><a href="http://www.facebook.com/selvakn">Facebook</a></li>
+        </ul>
+
+      </footer>
+
+    </section>
+
+ </body>
+
+</html>

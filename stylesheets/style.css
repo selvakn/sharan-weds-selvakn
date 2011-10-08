@@ -45,6 +45,7 @@ h1 a:hover { color: #fff; border-bottom: 1px solid rgba(0, 0, 0, 0.4); padding-b
 	);
 }
 
+.sub_heading {color: #7AC000 }
 h2 { padding-left: 125px; font-size: 66px; color: #ff5400; height: 105px; }
 h2 span.sub { font-size: 48px; float: left; color: #4b4b4b; }
 
@@ -74,13 +75,13 @@ nav ul li a { font-size: 24px; border-bottom: none; }
 #intro h2 a { padding-bottom: 0px; }
 #intro a.featured { padding-bottom: 0px; border-bottom: none; }
 #intro a img { border: 5px solid rgba(122, 192, 0, 0.15); -webkit-border-radius: 5px; margin-top: 40px; margin-bottom: 5px; }
-#intro a img:hover, #portfolio .work a img:hover, input:hover, textarea:hover { border: 5px solid rgba(122, 192, 0, 1); -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4); }
-#intro a img:active, #portfolio .work a img:active { -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); }
+#intro a img:hover, #events .work a img:hover, input:hover, textarea:hover { border: 5px solid rgba(122, 192, 0, 1); -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4); }
+#intro a img:active, #events .work a img:active { -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); }
 
-#portfolio ul.work a { border-bottom: none; }
-#portfolio ul.work a img { border: 5px solid rgba(122, 192, 0, 0.15); -webkit-border-radius: 5px; }
-#portfolio ul.work { float: left; margin-left: -15px; width: 975px;  }
-#portfolio ul.work li { list-style: none; float: left; margin-left: 15px; margin-bottom: 15px; }
+#events ul.work a { border-bottom: none; }
+#events ul.work a img { border: 5px solid rgba(122, 192, 0, 0.15); -webkit-border-radius: 5px; }
+#events ul.work { float: left; margin-left: -15px; width: 975px;  }
+#events ul.work li { list-style: none; float: left; margin-left: 15px; margin-bottom: 15px; }
 
 #contact { margin-bottom: 0px; }
 

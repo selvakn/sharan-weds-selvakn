@@ -1,6 +1,6 @@
-#map_canvas {
-  width: 700px;
-  height: 700px;
+.map_canvas {
+  width: 450px;
+  height: 450px;
   display: block;
 }
 
@@ -12,4 +12,16 @@
   left: 30%;
   right: 30%;
   position: relative;
+}
+
+.float_left {
+  float: left;
+}
+
+#cbe {
+  padding-right: 35px;
+}
+
+.float_right {
+  float: right;
 }

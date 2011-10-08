@@ -69,7 +69,7 @@ nav ul { position: absolute; right: 0; display: block; margin-top: -37px; }
 nav ul li { display: inline; margin-left: 50px; }
 nav ul li a { font-size: 24px; border-bottom: none; }
 
-#contentcontainer > section { margin-bottom: 100px; padding-top: 150px; float: left; }
+#contentcontainer > section { margin-bottom: 100px; padding-top: 150px; }
 
 #intro h2 a { padding-bottom: 0px; }
 #intro a.featured { padding-bottom: 0px; border-bottom: none; }

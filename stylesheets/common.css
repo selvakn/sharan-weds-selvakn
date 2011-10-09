@@ -31,3 +31,10 @@
 .venue {
   width: 45%
 }
+
+#events ul.events_list li { list-style: none; margin-left: 15px; margin-bottom: 15px; }
+#events ul.events_list div { margin-left: 10px }
+
+.fb-like {
+  margin: 10px;
+}

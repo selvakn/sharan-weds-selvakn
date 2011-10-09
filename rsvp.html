@@ -15,13 +15,42 @@
     <meta name="description" content="Selvakumar weds Sharanya" />
     <link rel="canonical" href="http://sharan.weds.selvakn.in/" />
 
-    <!--[if IE]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
     <!--[if IE 7]>
     <link rel="stylesheet" href="stylesheets/ie7.css" type="text/css" media="screen" />
     <![endif]-->
+
+    <!--[if IE]>
+    <script type="text/javascript" 
+     src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+
+    <style>
+     .chromeFrameInstallDefaultStyle {
+       width: 100%; /* default is 800px */
+       border: 5px solid blue;
+     }
+    </style>
+
+    <div id="prompt">
+      Please Install Google Chrome Frame to view the site.IE is not supported yet.
+    </div>
+
+    <script>
+     // The conditional ensures that this code will only execute in IE,
+     // Therefore we can use the IE-specific attachEvent without worry
+     window.attachEvent("onload", function() {
+       CFInstall.check({
+         mode: "overlay",
+         node: "prompt"
+       });
+     });
+    </script>
+  <![endif]-->
+
 
     <link rel="stylesheet" href="stylesheets/style.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="stylesheets/common.css" type="text/css" media="screen" />

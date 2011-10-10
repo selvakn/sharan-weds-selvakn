@@ -38,3 +38,8 @@
 .fb-like {
   margin: 10px;
 }
+
+.chromeFrameInstallDefaultStyle {
+  width: 100%; /* default is 800px */
+  border: 5px solid blue;
+}
